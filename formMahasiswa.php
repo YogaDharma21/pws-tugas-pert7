@@ -33,7 +33,6 @@
     <h2>Data User</h2>
     <table>
         <tr>
-            <th>ID</th>
             <th>NIM</th>
             <th>Name</th>
             <th>Jurusan</th>

@@ -16,10 +16,10 @@ $data = $mahasiswa->getById($_GET['id']);
     <form action="./process_edit_mahasiswa.php" method="POST">
         <input type="hidden" name="id" value="<?= $data['id'] ?>">
         <label for="nim">NIM</label>
-        <input type="text" name="nim" id="nim" value="<?= $data['nim']; ?>">
+        <input type="text" name="nim" id="nim" value="<?= $data['nim'] ?>">
         <br>
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" value="<?= $data['nama']; ?>">
+        <input type="text" name="name" id="name" value="<?= $data['nama'] ?>">
         <br>
         <label for="jurusan">Jurusan</label>
         <input type="text" name="jurusan" id="jurusan" value="<?= $data['jurusan'] ?>">

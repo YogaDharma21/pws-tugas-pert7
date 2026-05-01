@@ -7,9 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
 
     if ($users->update($id, $nama, $email)) {
-        echo "<script>alert('User berhasil diupdate.'); window.location.href = './formUser.php';</script>";
+        echo "<script>alert('User berhasil diedit.'); window.location.href = './formUser.php';</script>";
     } else {
-        echo "<script>alert('User gagal diupdate.'); window.location.href = './formUser.php';</script>";
+        echo "<script>alert('User gagal diedit.'); window.location.href = './formUser.php';</script>";
     }
 }
 ?>

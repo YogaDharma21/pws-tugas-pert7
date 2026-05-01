@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $noHp = $_POST['noHp'];
 
     if ($mahasiswa->update($id, $nim, $name, $jurusan, $alamat, $email, $noHp)) {
-        echo "<script>alert('Mahasiswa berhasil diupdate.'); window.location.href = './formMahasiswa.php';</script>";
+        echo "<script>alert('Mahasiswa berhasil diedit.'); window.location.href = './formMahasiswa.php';</script>";
     } else {
-        echo "<script>alert('Mahasiswa gagal diupdate.'); window.location.href = './formMahasiswa.php';</script>";
+        echo "<script>alert('Mahasiswa gagal diedit.'); window.location.href = './formMahasiswa.php';</script>";
     }
 } else {
     echo "<script>alert('Silahkan submit form dengan POST method.');</script>";
