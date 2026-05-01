@@ -27,11 +27,11 @@ class Mahasiswa extends Database
         return $stmt->get_result()->fetch_assoc();
     }
 
-    public function update($id, $nama, $jurusan, $alamat, $email, $noHp)
+    public function update($id, $nim, $nama, $jurusan, $alamat, $email, $noHp)
     {
-        $qry = "UPDATE $this->table SET nama = ?, jurusan = ?, alamat = ?, email = ?, no_hp = ? WHERE id = ?";
+        $qry = "UPDATE $this->table SET nim = ?, nama = ?, jurusan = ?, alamat = ?, email = ?, no_hp = ? WHERE id = ?";
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param("ssssssi", $nama, $jurusan, $alamat, $email, $noHp, $id);
+        $stmt->bind_param("ssssssi", $nim, $nama, $jurusan, $alamat, $email, $noHp, $id);
         return $stmt->execute();
     }
 
