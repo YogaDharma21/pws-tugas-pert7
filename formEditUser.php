@@ -1,3 +1,8 @@
+<?php
+require_once './classes/Users.php';
+$users = new Users();
+$data = $users->getById($_GET['id']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +14,12 @@
 
 <body>
     <form action="./process_edit_user.php" method="POST">
-        <input type="hidden" name="id" id="id">
+        <input type="hidden" name="id" id="id" value="<?= $data['id'] ?>">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" value="<?= $data['nama'] ?>">
         <br>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" value="<?= $data['email'] ?>">
         <br>
         <button type="submit">Submit</button>
     </form>
