@@ -4,11 +4,11 @@ class Mahasiswa extends Database
 {
     private $table = 'mahasiswa';
 
-    public function create($nama, $email, $password)
+    public function create($nim, $nama, $jurusan, $alamat, $email, $noHp)
     {
-        $qry = "INSERT INTO $this->table (nama, email, password) VALUES (?, ?, ?)";
+        $qry = "INSERT INTO $this->table (nim, nama, jurusan, alamat, email, no_hp) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param("sss", $nama, $email, $password);
+        $stmt->bind_param("ssssss", $nim, $nama, $jurusan, $alamat, $email, $noHp);
         return $stmt->execute();
     }
 

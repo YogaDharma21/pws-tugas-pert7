@@ -4,11 +4,11 @@ class Users extends Database
 {
     private $table = 'users';
 
-    public function create($nim, $nama, $jurusan, $alamat, $email, $noHp)
+    public function create($nama, $email, $password)
     {
-        $qry = "INSERT INTO $this->table (nim, nama, jurusan, alamat, email, no_hp) VALUES (?, ?, ?, ?, ?, ?)";
+        $qry = "INSERT INTO $this->table (nama, email, password) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param("ssssssi", $nim, $nama, $jurusan, $alamat, $email, $noHp);
+        $stmt->bind_param("sss", $nama, $email, $password);
         return $stmt->execute();
     }
 

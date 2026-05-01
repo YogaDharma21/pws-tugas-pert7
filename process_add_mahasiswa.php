@@ -1,7 +1,6 @@
 <?php
-require_once './classes/Users.php';
-var_dump($_POST);
-$users = new Users();
+require_once './classes/Mahasiswa.php';
+$mahasiswa = new Mahasiswa();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nim = $_POST['nim'];
     $nama = $_POST['name'];
@@ -10,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $noHp = $_POST['noHp'];
 
-    if ($users->create($nim, $nama, $jurusan, $alamat, $email, $noHp)) {
-        echo "<script>alert('Akun berhasil ditambahkan.'); window.location.href = './formUser.php';</script>";
+    if ($mahasiswa->create($nim, $nama, $jurusan, $alamat, $email, $noHp)) {
+        echo "<script>alert('Data mahasiswa berhasil ditambahkan.'); window.location.href = './formMahasiswa.php';</script>";
     } else {
-        echo "<script>alert('Akun gagal ditambahkan.'); window.location.href = './formUser.php';</script>";
+        echo "<script>alert('Data mahasiswa gagal ditambahkan.'); window.location.href = './formMahasiswa.php';</script>";
     }
 }

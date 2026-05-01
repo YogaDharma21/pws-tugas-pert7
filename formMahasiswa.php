@@ -48,9 +48,12 @@
         $data = $mahasiswa->getAllMahasiswa();
         while ($row = $data->fetch_assoc()) {
             echo "<tr>
-                    <td>{$row['id']}</td>
-                    <td>{$row['nama']}</td>
-                    <td>{$row['email']}</td>
+            <td>{$row['nim']}</td>
+            <td>{$row['nama']}</td>
+            <td>{$row['jurusan']}</td>
+            <td>{$row['alamat']}</td>
+            <td>{$row['email']}</td>
+            <td>{$row['no_hp']}</td>
                     <td>
                         <a href='formEditMahasiswa.php?id={$row['id']}'>Edit</a> |
                         <a href='process_delete_mahasiswa.php?id={$row['id']}'>Delete</a>
