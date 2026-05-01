@@ -1,18 +1,18 @@
 <?php
 require_once './config/Database.php';
-class Users extends Database
+class Mahasiswa extends Database
 {
-    private $table = 'users';
+    private $table = 'mahasiswa';
 
-    public function create($nim, $nama, $jurusan, $alamat, $email, $noHp)
+    public function create($nama, $email, $password)
     {
-        $qry = "INSERT INTO $this->table (nim, nama, jurusan, alamat, email, no_hp) VALUES (?, ?, ?, ?, ?, ?)";
+        $qry = "INSERT INTO $this->table (nama, email, password) VALUES (?, ?, ?)";
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param("ssssssi", $nim, $nama, $jurusan, $alamat, $email, $noHp);
+        $stmt->bind_param("sss", $nama, $email, $password);
         return $stmt->execute();
     }
 
-    public function getAllUsers()
+    public function getAllMahasiswa()
     {
         $qry = "SELECT * FROM $this->table";
         return $this->conn->query($qry);
@@ -27,11 +27,11 @@ class Users extends Database
         return $stmt->get_result()->fetch_assoc();
     }
 
-    public function update($id, $nama, $email)
+    public function update($id, $nama, $jurusan, $alamat, $email, $noHp)
     {
-        $qry = "UPDATE $this->table SET nama = ?, email = ? WHERE id = ?";
+        $qry = "UPDATE $this->table SET nama = ?, jurusan = ?, alamat = ?, email = ?, no_hp = ? WHERE id = ?";
         $stmt = $this->conn->prepare($qry);
-        $stmt->bind_param("ssi", $nama, $email, $id);
+        $stmt->bind_param("ssssssi", $nama, $jurusan, $alamat, $email, $noHp, $id);
         return $stmt->execute();
     }
 
